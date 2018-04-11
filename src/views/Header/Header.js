@@ -18,14 +18,14 @@ import ModularHeaderBackButton from './ModularHeaderBackButton';
 import HeaderStyleInterpolator from './HeaderStyleInterpolator';
 import withOrientation from '../withOrientation';
 
-const APPBAR_HEIGHT = Platform.OS === 'ios' ? 44 : 56;
+const APPBAR_HEIGHT = Platform.OS === 'ios' ? 44 : 44;
 const STATUSBAR_HEIGHT = Platform.OS === 'ios' ? 20 : 0;
-const TITLE_OFFSET = Platform.OS === 'ios' ? 70 : 56;
+const TITLE_OFFSET = Platform.OS === 'ios' ? 70 : 70;
 
 const getAppBarHeight = isLandscape => {
   return Platform.OS === 'ios'
     ? isLandscape && !Platform.isPad ? 32 : 44
-    : 56;
+    : 44;
 };
 
 class Header extends React.PureComponent {
@@ -102,13 +102,13 @@ class Header extends React.PureComponent {
     const onLayoutIOS =
       Platform.OS === 'ios'
         ? e => {
-            this.setState({
-              widths: {
-                ...this.state.widths,
-                [props.scene.key]: e.nativeEvent.layout.width,
-              },
-            });
-          }
+          this.setState({
+            widths: {
+              ...this.state.widths,
+              [props.scene.key]: e.nativeEvent.layout.width,
+            },
+          });
+        }
         : undefined;
 
     const RenderedHeaderTitle =
@@ -232,18 +232,7 @@ class Header extends React.PureComponent {
     const style = {};
     const { transitionPreset } = this.props;
 
-    if (Platform.OS === 'android') {
-      if (!options.hasLeftComponent) {
-        style.left = 0;
-      }
-      if (!options.hasRightComponent) {
-        style.right = 0;
-      }
-    } else if (
-      Platform.OS === 'ios' &&
-      !options.hasLeftComponent &&
-      !options.hasRightComponent
-    ) {
+    if (!options.hasLeftComponent && !options.hasRightComponent) {
       style.left = 0;
       style.right = 0;
     }
@@ -516,7 +505,7 @@ if (Platform.OS === 'ios') {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: Platform.OS === 'ios' ? '#F7F7F7' : '#FFF',
+    backgroundColor: Platform.OS === 'ios' ? '#F7F7F7' : '#F7F7F7',
     ...platformContainerStyles,
   },
   transparentContainer: {
