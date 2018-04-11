@@ -1,6 +1,6 @@
 import React from 'react';
 import { Dimensions, Platform, ScrollView } from 'react-native';
-import SafeAreaView from 'react-native-safe-area-view';
+import SafeAreaView from '../views/SafeAreaView';
 
 import createNavigator from './createNavigator';
 import createNavigationContainer from '../createNavigationContainer';

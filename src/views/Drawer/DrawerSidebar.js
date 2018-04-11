@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import SafeAreaView from 'react-native-safe-area-view';
+import SafeAreaView from '../SafeAreaView';
 
 import withCachedChildNavigation from '../../withCachedChildNavigation';
 import NavigationActions from '../../NavigationActions';
