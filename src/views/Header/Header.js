@@ -560,7 +560,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     alignItems: 'center',
     flexDirection: 'row',
-    justifyContent: Platform.OS === 'ios' ? 'center' : 'flex-start',
+    justifyContent: Platform.OS === 'ios' ? 'center' : 'center',
   },
   left: {
     left: 0,
